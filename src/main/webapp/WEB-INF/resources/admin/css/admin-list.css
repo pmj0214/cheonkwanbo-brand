@@ -1,0 +1,112 @@
+.excel-btn {
+    width:100px;
+    padding:5px;
+}
+
+.date-range-btn {
+    width:100px;
+    padding:5px;
+}
+
+.btn-form{
+    width:100%;
+}
+
+.from-date{
+    float:left;
+    z-index: 99999999;
+}
+
+.from-date input{
+    width:100px;
+    height:100%;
+    text-align:center;
+}
+
+.to-date{
+    margin-left:10px;
+    float:left;
+    z-index: 99999999;
+}
+
+.to-date input{
+    width:100px;
+    height:100%;
+    text-align:center;
+
+}
+
+.select-center{
+    margin-left:10px;
+    float:left;
+    z-index: 99999999;
+}
+
+.select-center select{
+    width:100px;
+    height:100%;
+    text-align:center;
+}
+
+select{
+    width:100px;
+    height:100%;
+    text-align:center;
+}
+
+.search-btn{
+    margin-left:10px;
+    float:left;
+    z-index: 99999999;
+}
+
+.day-search-btn{
+    margin-left:50px;
+    float:left;
+    z-index: 99999999;
+}
+
+.input-group{
+    width:100%;
+    margin-bottom: 10px;
+}
+
+.excel-down-btn{
+    position:absolute;
+    float:right;
+    top:0px;
+    left:0px;
+    right:0px;
+}
+
+.rows{
+    width:100%;
+}
+
+.btn-container{
+    width:100%;
+}
+
+.logout-group{
+    width:100%;
+}
+
+.btn-logout{
+    float: right;
+    color: white;
+    font-weight: bold;
+}
+
+.table-bordered{
+    font-size:12px;
+}
+
+.dataTables_info{
+    font-size: 14px;
+}
+
+.login-user{
+    float:right;
+    color: white;
+    font-weight: bold;
+}

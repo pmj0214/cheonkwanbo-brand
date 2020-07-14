@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+html,body{scroll-behavior: smooth;}
+body { font-family: 'Noto Sans KR', sans-serif; font-weight: 300; font-size: 16px; margin: 0; min-width: 750px; }
+* { box-sizing: border-box; }
+
+img {max-width: 100%; }
+
+.head { position: fixed; z-index: 1000; top: 0; left: 0; text-align: center; width: 100%; }
+.head .in {margin: 0 auto; }
+.head .btn {display: block; width: 250px; height: 90px; left: 0; top: 0; position: absolute; }
+.head .btn2 {display: block; width: 250px; height: 90px; right: 0; top: 0; position: absolute; }
+.page {position: relative; min-width: 750px;}
+.page .in { width: 100%; min-width: 750px; margin: 0 auto; line-height: 0; position: relative; }
+
+#page5 .slide {position: absolute; z-index: 2; left: 50%; top: 1020px; transform: translateX(-50%); width: 348px; overflow: hidden; }
+#page5 .slide .slide-in { display: table; white-space: nowrap; transition: left .3s; position: relative; left: 0; }
+#page5 .slide .item {display: inline-block; vertical-align: text-top; }
+#page5 .al {position: absolute; top: 1050px; left: 40px; }
+#page5 .ar {position: absolute; top: 1050px; right: 40px; }
+
+#page11 .slide {position: absolute; z-index: 2; left: 50%; top: 175px; transform: translateX(-50%); width: 683px; overflow: hidden; }
+#page11 .slide .slide-in { display: table; white-space: nowrap; transition: left .3s; position: relative; left: 0; }
+#page11 .slide .item {display: inline-block; vertical-align: text-top; }
+#page11 .arrow {position: absolute; z-index: 2; left: 50%; top: 795px; transform: translateX(-50%); width: 315px; display: inline-flex; }
+#page11 .arrow .item {flex: 1 1 auto; line-height: 47px; }
+#page11 .arrow .dot .on {display: none;}
+#page11 .arrow .dot.on .on {display: initial; }
+#page11 .arrow .dot.on .off {display: none; }
+
+#pagedb {padding-bottom: 100px; background-color: #712a35; }
+#pagedb .apply {position: absolute; top: 350px; left: 50%; transform: translateX(-50%); color: #712a35; font-size: 28px; font-weight: 700; background-color: #fff; border-radius: 16px; width: 685px; padding: 50px 0 20px; }
+#pagedb .apply .input {width: 100%; height: 48px; line-height: 48px; padding: 0 16px; border: 1px solid #712a35; border-radius: 16px; }
+#pagedb .apply .n {width: 275px; padding-left: 110px; }
+#pagedb .apply .v {padding-right: 130px; }
+#pagedb .apply .n2 {padding-left: 130px; padding-right: 130px; }
+#pagedb .apply .n span {font-weight: 400; font-size: 16px;}
+#pagedb .apply td {padding: 16px 0; }
+#pagedb .apply .radio {cursor: pointer; display: inline-block; height: 48px; line-height: 48px; border-radius: 16px; border: 1px solid #712a35; padding: 0 32px; }
+#pagedb .apply .radio.on {background-color: #d8d0d1;}
+#pagedb .apply .radio:first-child {margin-right: 16px; }
+#pagedb .apply .btn {cursor: pointer; display: inline-block; height: 48px; line-height: 48px; border-radius: 16px; background-color: #712a35; color: #fff; padding: 0 32px; }
+#pagedb .apply .agree{ padding-top: 5px; text-align: center; white-space: nowrap; font-size: 20px; border: 0; padding: 15px 0; }
+#pagedb .apply .agree .show-agree {font-size: 16px; padding: 5px; margin: 0 5px; position: relative; top: -1px; cursor: pointer; }
+
+.popup { z-index: 10000; position: fixed; top: 15px; right: 15px; display: table; padding: 15px; border: 1px solid #999; text-align: center; max-width: 100%; }
+.popup .close { float: right; cursor: pointer; position: relative; top: 10px; }
+.popup .open {font-size: 16px; position: relative; top: 8px; border: 3px solid #b65286; display: inline-block; background-color: #fff; padding: 10px 30px; border-radius: 30px; color: #333; }
+.popup img {max-width: 100%; }
+.popup2 {z-index: 10001; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(33,33,33,.5); }
+.popup2 .block {z-index: 2; position: absolute; width: 80%; max-height: 80%; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.popup2 img {max-width: 100%;}
+.popup2 .btns {display: flex; background-color: rgba(33,33,33,.8); }
+.popup2 .btn {color: #fff; width: 50%; text-align: center; cursor: pointer; padding: 5px 0; font-size: 16px; }
+
+.overlay { z-index: 10000; position: fixed; overflow: auto; top: -200%; left: 0;  right:0; bottom: 200%; padding: 5%; background-color: rgba(33,33,33,.5); transition: top .5s, bottom .5s; }
+.overlay .close { cursor: pointer; }
+.overlay .block { background-color: #fff; padding: 20px; max-width: 800px; margin: 0 auto; }
+.overlay table {border-collapse:collapse; border:1px gray solid;}
+.overlay th { width: 37%; }
+
+.show-overlay { overflow: hidden; font-size: 12px; }
+.show-overlay .overlay { top: 0%; bottom: 0%; }
+
+.footer { position: relative; z-index: 12; background-color: #eaedee; padding: 32px 10px; text-align: center;  font-size: 13.5px;}
+.footer .container { padding-top: 70px; margin: 0 auto; color: #8d9091; text-align: center; background-image: URL(http://project-realman.com/m/images/footer_logo.png); background-repeat: no-repeat; background-position: top center; }
+.footer img{max-width: 90%;}

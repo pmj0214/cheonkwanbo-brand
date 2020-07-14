@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.echomarketing.cheonkwanbobrand.mapper.PageMapper">
+
+    <select id="findByConnectIp" resultType="int">
+        select
+            count(*)
+        from consultdb
+        where connect_ip = #{ip}
+        and TIMEDIFF(create_date, NOW()) <![CDATA[ < ]]> '-00:01:00'
+    </select>
+
+    <select id="findByPhoneNumber" parameterType="kr.co.echomarketing.cheonkwanbobrand.domain.ConsultDb" resultType="kr.co.echomarketing.cheonkwanbobrand.domain.User">
+        select
+            reg_date,
+            expire_date,
+            phone_number
+        from mobile_phone
+        where AES_DECRYPT(UNHEX(phone_number), #{encodeKey}) = #{userMobile}
+        limit 1;
+    </select>
+
+    <insert id = "saveConsultDb" parameterType="kr.co.echomarketing.cheonkwanbobrand.domain.ConsultDb">
+        insert into consultdb
+            (
+                int_date, create_date, _source,
+                _medium, _campaign, _group, _term,
+                _content, name, phone_number, gender, age, consultation_details,
+                btn_type, position, duplicate, connect_ip, device
+            )
+        values
+            (
+                date_format(now(), '%Y%m%d'), date_format(now(), '%Y-%m-%d %H:%i:%s'), #{utmParam.utm_source}
+                , #{utmParam.utm_medium}, #{utmParam.utm_campaign}, #{utmParam.utm_group}, #{utmParam.utm_term}
+                , #{utmParam.utm_content}, HEX(AES_ENCRYPT(#{userName}, #{encodeKey})), HEX(AES_ENCRYPT(#{userMobile}, #{encodeKey})), #{gender}, #{userAge}, #{userConsult}
+                , #{btnType} , #{frmPosition}, #{duplicate}, #{ip}, #{device}
+            );
+    </insert>
+
+    <insert id="saveUniquePhoneNumber" parameterType="kr.co.echomarketing.cheonkwanbobrand.domain.ConsultDb">
+        insert into mobile_phone
+            (reg_date, expire_date, phone_number)
+        values
+            (now(), DATE_ADD(now(), INTERVAL 2 MONTH), HEX(AES_ENCRYPT(#{userMobile}, #{encodeKey})));
+    </insert>
+
+    <delete id="deleteExpirePhoneNumber" parameterType="kr.co.echomarketing.cheonkwanbobrand.domain.ConsultDb">
+        delete from mobile_phone where AES_DECRYPT(UNHEX(phone_number), #{encodeKey}) = #{userMobile};
+    </delete>
+
+</mapper>

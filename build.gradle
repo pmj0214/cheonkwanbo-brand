@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'kr.co.echomarketing'
+version = '0.7.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.1.RELEASE'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    compile 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    compile 'javax.servlet:jstl:1.2'
+    compile group: 'org.springframework.mobile', name: 'spring-mobile-device', version: '1.1.5.RELEASE'
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.13'
+    compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.2.1.RELEASE'
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.1'
+    compile group: 'com.opencsv', name: 'opencsv', version: '5.0'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

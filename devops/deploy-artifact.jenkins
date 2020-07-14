@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'PROFILE',
+                        defaultValue: 'prod',
+                        description: 'The target profile to build')
+    }
+
+    environment {
+        WORK_DIR = 'devops'
+    }
+
+    stages {
+        stage('set env') {
+            steps {
+                script {
+                    env.VERSION = sh (script: "./gradlew properties -q | grep \"version:\" | awk '{print \$2}'", returnStdout: true).trim()
+                    for (String line : readFile("devops/conf-${PROFILE}.properties").split("\r?\n")) {
+                        if (line.indexOf("=") != -1) {
+                            def tokens = line.split("=")
+                            def key = tokens[0]
+                            def value = (tokens.length == 1) ? "" : tokens[1]
+
+                            if (key.equals("alm.jenkins.path")) {
+                                env.ALM_JENKINS_PATH= value
+                            }else if (key.equals("server.ip")) {
+                                env.SERVER_IP = value
+                            }else if (key.equals("server.domain")) {
+                                env.SERVER_DOMAIN = value
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stage('build cheonkwanbo-brand') {
+            steps {
+                echo 'chmod to exec shell...'
+                sh 'cd ${WORK_DIR} && chmod a+x *.sh'
+
+                echo 'deploying cheonkwanbo-brand ...'
+                sh 'cd ${WORK_DIR} && ./deploy-package.sh'
+            }
+        }
+        stage('deploy echo homepage') {
+            steps {
+                echo 'deploy cheonkwanbo-brand'
+                sh 'cd ${WORK_DIR} && ./deploy-build.sh "${VERSION}" "${ALM_JENKINS_PATH}" "${SERVER_IP}" "${PROFILE}" ""${SERVER_DOMAIN}'
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.echomarketing.cheonkwanbobrand.mapper.AdminMapper">
+
+    <select id="findByUser" parameterType="kr.co.echomarketing.cheonkwanbobrand.domain.Admin" resultType="kr.co.echomarketing.cheonkwanbobrand.domain.Admin">
+        select
+          user_id as user_id,
+          user_pwd as admin_pwd,
+          authority
+        from
+          user
+        where
+          user_id = #{admin_id}
+    </select>
+
+    <select id="findByDbList" parameterType="kr.co.echomarketing.cheonkwanbobrand.domain.AdminSearchParam" resultType="kr.co.echomarketing.cheonkwanbobrand.domain.AdminConsultDb">
+        select
+            idx,
+            create_date,
+            _source,
+            _medium,
+            _campaign,
+            _group,
+            _term,
+            IF(_content IS NULL OR _content = '', _group, _content) AS _content,
+            AES_DECRYPT(UNHEX(name), #{encodeKey}) as name,
+            AES_DECRYPT(UNHEX(phone_number), #{encodeKey}) as phone_number,
+            gender,
+            IF(age="0","",age) AS age,
+            consultation_details,
+            btn_type,
+            position,
+            duplicate,
+            connect_ip,
+            device
+        from
+            consultdb
+        where
+            int_date between #{dateFrom} and #{dateTo}
+        order by idx desc;
+    </select>
+
+    <select id="countByDbList" resultType="int">
+        select
+            count(*)
+        from
+            consultdb
+        where
+            int_date between #{dateFrom} and #{dateTo}
+        <if test='duplicateAt != null and duplicateAt == "N"'>
+            and
+                duplicate = false
+        </if>
+    </select>
+
+</mapper>

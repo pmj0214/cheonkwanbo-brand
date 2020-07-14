@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@font-face {
+	font-family:'SDGothicNeoa';
+	font-style:normal;
+	src:local('☺︎'), url("../font/SDGothicNeoa.woff2") format("woff2");
+}
+
+/* RESET */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,
+em,img,ins,kbd,q,samp,small,strong,sub,sup,var,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,
+caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,
+menu,nav,section,summary,time,mark,audio,video,input,select,button{ margin:0;padding:0;border:0;vertical-align:baseline;background:transparent;color:#222222;font-style:normal; box-sizing:border-box; letter-spacing:-0.2px; }
+body{line-height:1.2;word-break:break-all}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav,ul,li{list-style:none}
+input,select{vertical-align:middle}
+html{font-size:13px}
+caption{overflow:hidden;visibility:hidden;width:0;height:0;font-size:1px}
+html{-webkit-text-size-adjust:none}
+button { border:none; }
+img { width:100%; border:none; vertical-align:top; }
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-family:'SDGothicNeoa','Malgun Gothic', 'Gulim', sans-serif;}
+
+a {	text-decoration:none;cursor:pointer; color:#000; }
+.cf {clear:both;}
+.bold { font-weight:bold; }
+.color_red { color:red; }
+.text_center { text-align:center; }
+
+.header a { display:block; position:absolute; top:0; right:0; width:28vw; height:11.9444vw; text-indent:-9999px; }
+.inner .section { margin-top:20vw; }
+.inner .text_right {text-align:right; font-size:2.5vw; margin:0; margin-right:-5vw;}
+.inner {width:85%; margin:2vw auto 0; font-size:3.5vw;}
+.inner h2 { font-size: 6.3vw; }
+.inner p {margin:25px 0; font-size:5vw;}
+.inner span.sub_text { font-size: 4vw; }
+.inner .img_box{ margin:20px 0; }
+.inner .cont { width:80%; margin:0 auto;}
+.inner label { width:15vw; display:inline-block; margin:4vw 0; font-size:4vw; }
+.inner input { border:1px solid #777; background:#fff; color:#231815; width:50vw; height:9vw; text-align: center; font-size:4vw;}
+
+.inner .agree_box { width: 42vw; float: right; margin-right: -9vw; }
+.inner .agree_box input { position:absolute; left:-9999px; width:1px; height:1px; }
+.inner .agree_box label { width:auto; padding-left:4.5vw; margin: 0px 0px 0px; background:url("../images/db_checkbox_off.png") no-repeat 0 0 /3.6111vw auto; }
+.inner .agree_box label img { position:relative; top:0.4vw; width:21.3888vw; }
+.inner .agree_box input:checked + label { background-image:url("../images/db_checkbox_on.png"); }
+.inner .agree_box a { display:inline-block; padding-top:1.5vw;}
+.inner .agree_box a img { width:14vw; display: block; }
+
+.inner .agree_box2 { width: 42vw; float: right; margin-right: -9vw; margin-top: 9.1%; }
+.inner .agree_box2 input { position:absolute; left:-9999px; width:1px; height:1px; }
+.inner .agree_box2 label { width:auto; padding-left:4.5vw; margin: 4px 0px 4px; background:url("../images/db_checkbox_off.png") no-repeat 0 0 /3.6111vw auto; }
+.inner .agree_box2 label img { position:relative; width: 70vw; top: 1px;}
+.inner .agree_box2 input:checked + label { background-image:url("../images/db_checkbox_on.png"); }
+.inner .agree_box2 a { display:inline-block; padding-top:1.5vw;}
+.inner .agree_box2 a img { width:14vw; display: block; }
+
+.inner .agree_box3 { width: 65.5vw; float: right; margin-top: -3.5%; margin-right: -14vw }
+.inner .agree_box3 input { position:absolute; left:-9999px; width:1px; height:1px; }
+.inner .agree_box3 label { width:auto; padding-left:4.5vw; margin: 4px 0px 4px; background:url("../images/db_checkbox_off.png") no-repeat 0 0 /3.6111vw auto; }
+.inner .agree_box3 label img { position:relative; width: 40vw; top: 1px;}
+.inner .agree_box3 input:checked + label { background-image:url("../images/db_checkbox_on.png"); }
+.inner .agree_box3 a { display:inline-block; padding-top:1.5vw;}
+.inner .agree_box3 a img { width:14vw; display: block; }
+
+.inner .btn a { display:block; width:50vw; margin:0 auto; margin-top:3.5vw; text-align:center; line-height:9vw; font-weight:bold; letter-spacing:1vw; font-size:4.5vw;}
+
+.inner .s01 {padding-top:9vw;}
+
+.inner .s03 p { font-size:4.8vw; }
+
+.inner .s04 h2 { font-size: 4vw;}
+.inner .s04 p { font-size: 4vw; margin:7vw auto 3vw; }
+.inner .s04 .chart_title { border:1px solid #333; padding:1.5vw 0; width:60vw; }
+.inner .s04 span {text-align:center; display: block; font-size:3.5vw; }
+.inner .s04 p.text_ex { text-align:center; font-size:2vw; margin-top:0; }
+.inner .s04 .img_box { margin-bottom:1.5vw; }
+
+.inner .s05 h2 span { font-size:8.5vw; }
+.inner .s05 ul { width : 90%; margin:5vw auto; }
+.inner .s05 li { font-size:4vw; margin:3vw 0 3vw 2.5vw;}
+.inner .s05 li img { display:inline-block; width:3vw; height:3vw; border:1px solid #333; margin-right: 3vw; }
+.inner .s05 p.sub_title { font-size: 4.3vw; }
+
+.inner .s06 { margin-bottom:5vw; }
+.inner .s06 p { font-size:6vw; }
+.inner .s06 > p:nth-child(1) { margin-bottom:0; }
+.inner .s06 p.text_ex { text-align:center; font-size:2vw; margin:0;}
+.inner .s06 .btn { height:12vw; }
+.inner .s06 .btn a { width:32vw; margin-top:0;}
+.inner .s06 .btn a:nth-child(1) { float:left; }
+.inner .s06 .btn a:nth-child(2) { float:right; }
+
+.footer { margin-bottom: 10vw; }
+.footer p { font-size:3.5vw; line-height:4.5vw; }
+
+/*개인정보취급동의 팝업*/
+.popup { display:none; }
+.popup .mask { position:fixed; left:0; top:0; right:0; bottom:0; background:#000; opacity:0.7; filter:alpha(opacity=70); z-index:100; }
+.popup .btn_close { position:absolute; display:block; top:0; right:0; padding:4vw; }
+.popup_agree .content { position:fixed; top:50%; left:50%; width:88.8888vw; height:120vw; padding:5vw; margin-left:-44.4444vw; margin-top:-60vw; background:#fff; z-index:101; } 
+.popup_agree .content h3 { padding-bottom:2.5777vw; border-bottom:1px solid #b5b5b6; color:#231815; font-size:4.5833vw; text-align:center;  }
+.popup_agree .content .area { height:97vw; padding:0 10px; margin-top:20px; overflow-y:auto; }
+.popup_agree .content .area p { font-size:12px; word-break:keep-all; margin-bottom:15px; line-height:20px; }
+.popup_agree .content .area p span { display:block; color:#000; }
+.popup_agree .content .area table { margin-bottom:15px; border-spacing:0; }
+.popup_agree .content .area table th,
+.popup_agree .content .area table td { font-size:12px; border: 1px solid #ccc; padding:10px; }
+/*개인정보취급동의 팝업*/
+
+/*특가 확인 플로팅*/
+.float_down img{ width: 80px; }
+.ScrollButton { position: fixed; right: 10px; cursor: pointer; z-index: 10; display: none; }
+#BottomButton {bottom: 80px;}
+/*특가 확인 플로팅*/
